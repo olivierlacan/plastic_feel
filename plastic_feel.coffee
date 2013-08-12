@@ -1,4 +1,4 @@
-class Luhn
+class PlasticFeel
   @calculateLuhn = (number) ->
     sum = 0
     i = 0
@@ -24,7 +24,7 @@ class Luhn
     luhn = number.replace(/[^\d]/g, "")
     digit = parseInt( luhn.substring( luhn.length - 1, luhn.length ) )
     luhnLess = luhn.substring(0, luhn.length - 1)
-    if ( Orders.calculateLuhn( luhnLess ) isnt parseInt( digit ) )
+    if ( PlasticFeel.calculateLuhn( luhnLess ) isnt parseInt( digit ) )
       return false
     return true
 
@@ -56,7 +56,7 @@ class Luhn
 
     type = creditCardTypeFromNumber($("#card_number").val())
 
-    if Orders.luhnCheck($("#card_number").val()) and $("#card_number").val().length > 11
+    if PlasticFeel.luhnCheck($("#card_number").val()) and $("#card_number").val().length > 11
       $('#billing h1').addClass('valid')
     else
       $('#billing h1').removeClass('valid')
@@ -75,8 +75,8 @@ class Luhn
         opacity: 1
 
   @checkCard: ->
-    Orders.detectCardType()     
+    PlasticFeel.detectCardType()     
 
     $('#card_number').keyup ->
-      Orders.detectCardType()
+      PlasticFeel.detectCardType()
 end
