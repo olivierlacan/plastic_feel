@@ -1,0 +1,19 @@
+#billing
+  #card_banner
+    %h1 Credit Card
+    .cards
+      = image_tag "assets/amex.png", alt: "American Express", id: "amex"
+      = image_tag "assets/mastercard.png", alt: "MasterCard", id: "mastercard"
+      = image_tag "assets/visa.png", alt: "Visa", id: "visa"
+      = image_tag "assets/discover.png", alt: "Discover", id: "discover"
+  .field
+    = label_tag :card_number, "Number"
+    = text_field_tag :card_number, nil, name: nil, maxlength: 19, size: 19, placeholder: "0000 0000 0000 0000"
+  .field
+    = label_tag :card_code, "Security Code (CVV)"
+    = text_field_tag :card_code, nil, name: nil, maxlength: 4, size: 4, placeholder: "123"
+  .field
+    = label_tag :card_month, "Expiration"
+    .selects
+      = select_month nil, { add_month_numbers: true }, { name: nil, id: "card_month" }
+      = select_year nil, { start_year: Date.today.year, end_year: Date.today.year + 15 }, { name: nil, id: "card_year" }
